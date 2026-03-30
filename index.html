@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MS Word කෙටිමං යතුරු | Shortcut Keys</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --bg:#f2f2f7;
+    --card:rgba(255,255,255,0.72);
+    --card-border:rgba(255,255,255,0.5);
+    --text:#1c1c1e;
+    --sub:#8e8e93;
+    --blue:#007aff;
+    --green:#34c759;
+    --orange:#ff9500;
+    --red:#ff3b30;
+    --purple:#af52de;
+    --pink:#ff2d55;
+    --teal:#5ac8fa;
+    --indigo:#5856d6;
+    --mint:#00c7be;
+    --yellow:#ffcc00;
+    --cyan:#32d4de;
+  }
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Arial,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    min-height:100vh;
+    -webkit-font-smoothing:antialiased;
+  }
+  /* ===== Hero Section ===== */
+  .hero{
+    background:linear-gradient(135deg,#1c1c1e 0%,#2c2c2e 50%,#3a3a3c 100%);
+    padding:60px 20px 40px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;
+    background:radial-gradient(circle at 30% 50%,rgba(0,122,255,0.15) 0%,transparent 50%),
+               radial-gradient(circle at 70% 50%,rgba(175,82,222,0.15) 0%,transparent 50%);
+    animation:heroGlow 8s ease-in-out infinite alternate;
+  }
+  @keyframes heroGlow{0%{transform:rotate(0deg);}100%{transform:rotate(10deg);}}
+  .hero-content{position:relative;z-index:1;max-width:800px;margin:0 auto;}
+  .hero-icon{
+    width:80px;height:80px;border-radius:20px;
+    background:linear-gradient(135deg,#007aff,#5856d6);
+    display:flex;align-items:center;justify-content:center;
+    margin:0 auto 20px;box-shadow:0 10px 30px rgba(0,122,255,0.3);
+  }
+  .hero-icon svg{width:44px;height:44px;fill:#fff;}
+  .hero h1{
+    font-size:clamp(28px,5vw,42px);font-weight:700;color:#fff;
+    letter-spacing:-0.5px;margin-bottom:8px;
+  }
+  .hero p{font-size:17px;color:rgba(255,255,255,0.6);line-height:1.5;max-width:600px;margin:0 auto;}
+  .hero .badge-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:18px;}
+  .hero .stat-badge{
+    background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,0.15);border-radius:20px;
+    padding:6px 16px;font-size:13px;color:rgba(255,255,255,0.8);font-weight:500;
+  }
+
+  /* ===== Search Bar ===== */
+  .search-wrap{
+    max-width:680px;margin:-24px auto 0;position:relative;z-index:10;padding:0 20px;
+  }
+  .search-bar{
+    width:100%;padding:14px 20px 14px 48px;border:none;border-radius:16px;
+    font-size:17px;font-family:inherit;
+    background:rgba(255,255,255,0.95);
+    backdrop-filter:blur(20px);
+    box-shadow:0 4px 24px rgba(0,0,0,0.08),0 1px 3px rgba(0,0,0,0.04);
+    outline:none;transition:box-shadow .3s;
+  }
+  .search-bar:focus{box-shadow:0 4px 30px rgba(0,122,255,0.18),0 1px 3px rgba(0,0,0,0.04);}
+  .search-icon{
+    position:absolute;left:36px;top:50%;transform:translateY(-50%);
+    width:20px;height:20px;fill:var(--sub);pointer-events:none;
+  }
+  .search-count{
+    text-align:center;margin-top:10px;font-size:13px;color:var(--sub);font-weight:500;
+  }
+
+  /* ===== Category Filter ===== */
+  .filter-wrap{
+    max-width:1200px;margin:24px auto 0;padding:0 20px;
+    overflow-x:auto;-webkit-overflow-scrolling:touch;
+  }
+  .filter-wrap::-webkit-scrollbar{display:none;}
+  .filter-pills{display:flex;gap:8px;padding-bottom:4px;min-width:max-content;}
+  .pill{
+    padding:8px 18px;border-radius:100px;border:none;
+    font-size:14px;font-weight:600;font-family:inherit;cursor:pointer;
+    white-space:nowrap;transition:all .25s;
+    background:rgba(0,0,0,0.05);color:var(--sub);
+  }
+  .pill:hover{background:rgba(0,0,0,0.08);}
+  .pill.active{color:#fff;transform:scale(1.02);}
+  .pill[data-cat="all"].active{background:var(--text);}
+  .pill[data-cat="general"].active{background:var(--blue);}
+  .pill[data-cat="format"].active{background:var(--purple);}
+  .pill[data-cat="nav"].active{background:var(--green);}
+  .pill[data-cat="select"].active{background:var(--teal);}
+  .pill[data-cat="para"].active{background:var(--orange);}
+  .pill[data-cat="doc"].active{background:var(--red);}
+  .pill[data-cat="find"].active{background:var(--indigo);}
+  .pill[data-cat="view"].active{background:var(--mint);}
+  .pill[data-cat="field"].active{background:var(--pink);}
+  .pill[data-cat="mail"].active{background:var(--yellow);color:var(--text);}
+  .pill[data-cat="outline"].active{background:var(--cyan);}
+  .pill[data-cat="other"].active{background:#8e8e93;}
+
+  /* ===== Main Grid ===== */
+  .container{max-width:1200px;margin:28px auto;padding:0 20px 60px;}
+
+  /* Section Title */
+  .section-title{
+    display:flex;align-items:center;gap:10px;margin:32px 0 16px;
+  }
+  .section-dot{width:12px;height:12px;border-radius:50%;}
+  .section-title h2{font-size:22px;font-weight:700;letter-spacing:-0.3px;}
+  .section-title .count{
+    font-size:13px;font-weight:500;color:var(--sub);
+    background:rgba(0,0,0,0.05);border-radius:20px;padding:2px 10px;
+  }
+
+  /* Cards Grid */
+  .card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(340px,1fr));
+    gap:12px;
+  }
+
+  /* Card */
+  .card{
+    background:var(--card);
+    backdrop-filter:blur(20px);
+    border:1px solid var(--card-border);
+    border-radius:16px;
+    padding:16px 18px;
+    display:flex;align-items:center;gap:14px;
+    transition:all .25s ease;
+    cursor:default;
+    position:relative;
+    overflow:hidden;
+  }
+  .card::before{
+    content:'';position:absolute;top:0;left:0;right:0;height:1px;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,0.8),transparent);
+  }
+  .card:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 30px rgba(0,0,0,0.08);
+  }
+  .card.hidden{display:none;}
+
+  .card-icon{
+    width:44px;height:44px;border-radius:12px;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;
+    font-size:18px;font-weight:700;color:#fff;
+  }
+
+  .card-body{flex:1;min-width:0;}
+  .card-cmd{font-size:15px;font-weight:600;color:var(--text);margin-bottom:2px;}
+  .card-si{font-size:13px;color:var(--sub);line-height:1.4;}
+
+  .card-keys{
+    display:flex;gap:4px;flex-wrap:wrap;flex-shrink:0;align-items:center;
+  }
+  .key{
+    display:inline-flex;align-items:center;justify-content:center;
+    min-width:28px;height:28px;padding:0 8px;
+    background:linear-gradient(180deg,#f8f8f8 0%,#e8e8e8 100%);
+    border:1px solid #d1d1d6;
+    border-radius:7px;
+    font-size:11px;font-weight:600;color:#3a3a3c;
+    box-shadow:0 1px 2px rgba(0,0,0,0.08),inset 0 1px 0 rgba(255,255,255,0.9);
+    white-space:nowrap;
+    font-family:-apple-system,BlinkMacSystemFont,monospace;
+  }
+  .key-plus{font-size:12px;color:#c7c7cc;font-weight:400;margin:0 1px;}
+
+  /* Color Coding for card icons */
+  .ic-blue{background:linear-gradient(135deg,#007aff,#5ac8fa);}
+  .ic-purple{background:linear-gradient(135deg,#af52de,#5856d6);}
+  .ic-green{background:linear-gradient(135deg,#34c759,#30d158);}
+  .ic-teal{background:linear-gradient(135deg,#5ac8fa,#64d2ff);}
+  .ic-orange{background:linear-gradient(135deg,#ff9500,#ffcc00);}
+  .ic-red{background:linear-gradient(135deg,#ff3b30,#ff6961);}
+  .ic-indigo{background:linear-gradient(135deg,#5856d6,#7878fa);}
+  .ic-mint{background:linear-gradient(135deg,#00c7be,#66d4cf);}
+  .ic-pink{background:linear-gradient(135deg,#ff2d55,#ff6482);}
+  .ic-yellow{background:linear-gradient(135deg,#ff9f0a,#ffd60a);}
+  .ic-cyan{background:linear-gradient(135deg,#32d4de,#70d7ff);}
+  .ic-gray{background:linear-gradient(135deg,#8e8e93,#aeaeb2);}
+
+  /* Footer */
+  .footer{
+    text-align:center;padding:32px 20px 48px;
+    font-size:13px;color:var(--sub);
+  }
+  .footer a{color:var(--blue);text-decoration:none;}
+
+  /* Scroll-to-top */
+  .scroll-top{
+    position:fixed;bottom:28px;right:28px;
+    width:48px;height:48px;border-radius:50%;border:none;
+    background:rgba(0,0,0,0.7);backdrop-filter:blur(10px);
+    color:#fff;font-size:20px;cursor:pointer;
+    display:none;align-items:center;justify-content:center;
+    box-shadow:0 4px 14px rgba(0,0,0,0.2);
+    transition:transform .2s;z-index:100;
+  }
+  .scroll-top:hover{transform:scale(1.08);}
+  .scroll-top.show{display:flex;}
+
+  /* Dark mode */
+  @media(prefers-color-scheme:dark){
+    :root{
+      --bg:#000;--card:rgba(28,28,30,0.8);
+      --card-border:rgba(56,56,58,0.6);
+      --text:#f5f5f7;--sub:#98989d;
+    }
+    .search-bar{background:rgba(44,44,46,0.9);color:#fff;}
+    .pill{background:rgba(255,255,255,0.08);color:#98989d;}
+    .pill:hover{background:rgba(255,255,255,0.12);}
+    .key{
+      background:linear-gradient(180deg,#3a3a3c 0%,#2c2c2e 100%);
+      border-color:#48484a;color:#e5e5ea;
+      box-shadow:0 1px 2px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.05);
+    }
+    .key-plus{color:#636366;}
+    .section-title .count{background:rgba(255,255,255,0.08);}
+  }
+
+  @media(max-width:600px){
+    .card-grid{grid-template-columns:1fr;}
+    .hero{padding:48px 16px 36px;}
+    .card{padding:14px 14px;}
+    .card-keys{gap:3px;}
+    .key{height:26px;padding:0 6px;font-size:10px;min-width:24px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-icon">
+      <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zM6 20V4h7v5h5v11H6zM8 12h8v2H8v-2zm0 4h5v2H8v-2z"/></svg>
+    </div>
+    <h1>MS Word කෙටිමං යතුරු</h1>
+    <p>Microsoft Word හි සියලුම යතුරුපුවරු කෙටිමං සිංහලෙන් හඳුන්වා දීම</p>
+    <div class="badge-row">
+      <span class="stat-badge">⌨️ 200+ කෙටිමං</span>
+      <span class="stat-badge">🇱🇰 සිංහල විස්තර</span>
+      <span class="stat-badge">📂 12 කාණ්ඩ</span>
+    </div>
+  </div>
+</div>
+
+<!-- SEARCH -->
+<div class="search-wrap">
+  <svg class="search-icon" viewBox="0 0 20 20"><path d="M8.5 3a5.5 5.5 0 0 1 4.38 8.82l4.15 4.15a.75.75 0 0 1-1.06 1.06l-4.15-4.15A5.5 5.5 0 1 1 8.5 3zm0 1.5a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/></svg>
+  <input class="search-bar" type="text" id="search" placeholder="කෙටිමං සොයන්න / Search shortcuts..." autocomplete="off">
+  <div class="search-count" id="searchCount"></div>
+</div>
+
+<!-- FILTER -->
+<div class="filter-wrap">
+  <div class="filter-pills" id="filters">
+    <button class="pill active" data-cat="all">සියල්ල</button>
+    <button class="pill" data-cat="general">🔵 සාමාන්‍ය</button>
+    <button class="pill" data-cat="format">🟣 හැඩතල ගැන්වීම</button>
+    <button class="pill" data-cat="nav">🟢 සංචාලනය</button>
+    <button class="pill" data-cat="select">🔵 තේරීම</button>
+    <button class="pill" data-cat="para">🟠 ඡේද</button>
+    <button class="pill" data-cat="doc">🔴 ලේඛන</button>
+    <button class="pill" data-cat="find">🟣 සෙවීම</button>
+    <button class="pill" data-cat="view">🟢 දසුන</button>
+    <button class="pill" data-cat="field">🔴 ක්ෂේත්‍ර</button>
+    <button class="pill" data-cat="mail">🟡 තැපැල්</button>
+    <button class="pill" data-cat="outline">🔵 සැකිල්ල</button>
+    <button class="pill" data-cat="other">⚪ වෙනත්</button>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="container" id="content">
+
+  <!-- ==================== GENERAL ==================== -->
+  <div class="section-title" data-section="general">
+    <span class="section-dot" style="background:var(--blue)"></span>
+    <h2>සාමාන්‍ය විධාන</h2><span class="count">General</span>
+  </div>
+  <div class="card-grid">
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">📋</div><div class="card-body"><div class="card-cmd">Copy</div><div class="card-si">පිටපත් කිරීම — තෝරාගත් අන්තර්ගතය පසුරු පුවරුවට පිටපත් කරයි</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">C</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">📋</div><div class="card-body"><div class="card-cmd">Copy (Alt)</div><div class="card-si">පිටපත් කිරීම — විකල්ප ක්‍රමය</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Insert</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">✂️</div><div class="card-body"><div class="card-cmd">Cut</div><div class="card-si">කැපීම — තෝරාගත් අන්තර්ගතය කපා පසුරු පුවරුවට දමයි</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">X</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">✂️</div><div class="card-body"><div class="card-cmd">Cut (Alt)</div><div class="card-si">කැපීම — විකල්ප ක්‍රමය</div></div><div class="card-keys"><span class="key">Shift</span><span class="key-plus">+</span><span class="key">Del</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">📌</div><div class="card-body"><div class="card-cmd">Paste</div><div class="card-si">ඇලවීම — පසුරු පුවරුවේ අන්තර්ගතය ඇලවීම</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">V</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">📌</div><div class="card-body"><div class="card-cmd">Paste (Alt)</div><div class="card-si">ඇලවීම — විකල්ප ක්‍රමය</div></div><div class="card-keys"><span class="key">Shift</span><span class="key-plus">+</span><span class="key">Insert</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">📝</div><div class="card-body"><div class="card-cmd">Paste Text Only</div><div class="card-si">පාඨය පමණක් ඇලවීම — හැඩතල ගැන්වීම් රහිතව ඇලවීම</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">V</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">🎨</div><div class="card-body"><div class="card-cmd">Paste Format / Special</div><div class="card-si">ආකෘති ඇලවීම / විශේෂ ඇලවීම</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">V</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">↩️</div><div class="card-body"><div class="card-cmd">Undo</div><div class="card-si">පෙරසේ කිරීම — අවසන් ක්‍රියාව අවලංගු කරයි</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Z</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">↩️</div><div class="card-body"><div class="card-cmd">Undo (Alt)</div><div class="card-si">පෙරසේ කිරීම — විකල්ප ක්‍රමය</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Backspace</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">↪️</div><div class="card-body"><div class="card-cmd">Redo or Repeat</div><div class="card-si">නැවත කිරීම / පුනරාවර්තනය — අවලංගු කළ ක්‍රියාව නැවත කරයි</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Y</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">↪️</div><div class="card-body"><div class="card-cmd">Redo or Repeat</div><div class="card-si">නැවත කිරීම / පුනරාවර්තනය</div></div><div class="card-keys"><span class="key">F4</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">↪️</div><div class="card-body"><div class="card-cmd">Redo or Repeat</div><div class="card-si">නැවත කිරීම / පුනරාවර්තනය</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Return</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">↪️</div><div class="card-body"><div class="card-cmd">Redo</div><div class="card-si">නැවත කිරීම</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">Backspace</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">💾</div><div class="card-body"><div class="card-cmd">Save</div><div class="card-si">සුරැකීම — ලේඛනය සුරකියි</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">S</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">💾</div><div class="card-body"><div class="card-cmd">Save</div><div class="card-si">සුරැකීම — විකල්ප ක්‍රමය</div></div><div class="card-keys"><span class="key">Shift</span><span class="key-plus">+</span><span class="key">F12</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">💾</div><div class="card-body"><div class="card-cmd">Save</div><div class="card-si">සුරැකීම</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">F2</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">📁</div><div class="card-body"><div class="card-cmd">Save As</div><div class="card-si">වෙනත් නමින් සුරැකීම — නව නමකින් හෝ ස්ථානයක සුරකියි</div></div><div class="card-keys"><span class="key">F12</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">🖨️</div><div class="card-body"><div class="card-cmd">Print</div><div class="card-si">මුද්‍රණය — ලේඛනය මුද්‍රණය කරයි</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">P</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">🖨️</div><div class="card-body"><div class="card-cmd">Print</div><div class="card-si">මුද්‍රණය</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">F2</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">🖨️</div><div class="card-body"><div class="card-cmd">Print</div><div class="card-si">මුද්‍රණය</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">F12</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">🖨️</div><div class="card-body"><div class="card-cmd">Print</div><div class="card-si">මුද්‍රණය — මුද්‍රණ පෙරදසුන</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">I</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">📂</div><div class="card-body"><div class="card-cmd">Open</div><div class="card-si">විවෘත කිරීම — ගොනුවක් විවෘත කරයි</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">F12</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">📂</div><div class="card-body"><div class="card-cmd">Open</div><div class="card-si">විවෘත කිරීම</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">F2</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">📂</div><div class="card-body"><div class="card-cmd">Open Using Backstage</div><div class="card-si">Backstage භාවිතයෙන් විවෘත කිරීම</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">O</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">📄</div><div class="card-body"><div class="card-cmd">New Default</div><div class="card-si">නව ලේඛනය — නව හිස් ලේඛනයක් සාදයි</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">N</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">❌</div><div class="card-body"><div class="card-cmd">Cancel</div><div class="card-si">අවලංගු කිරීම — වත්මන් ක්‍රියාව අවලංගු කරයි</div></div><div class="card-keys"><span class="key">Esc</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">🗑️</div><div class="card-body"><div class="card-cmd">Clear</div><div class="card-si">මකා දැමීම — තෝරාගත් අන්තර්ගතය මකයි</div></div><div class="card-keys"><span class="key">Del</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">❓</div><div class="card-body"><div class="card-cmd">Help</div><div class="card-si">උදව් — උදව් කවුළුව විවෘත කරයි</div></div><div class="card-keys"><span class="key">F1</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">🔀</div><div class="card-body"><div class="card-cmd">Move</div><div class="card-si">ගෙනයාම — තෝරාගත් පාඨය වෙනත් ස්ථානයකට ගෙනයයි</div></div><div class="card-keys"><span class="key">F2</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">📎</div><div class="card-body"><div class="card-cmd">CopyToFrom</div><div class="card-si">පිටපත් කිරීම (සිට/වෙත)</div></div><div class="card-keys"><span class="key">Shift</span><span class="key-plus">+</span><span class="key">F2</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">🔧</div><div class="card-body"><div class="card-cmd">Auto Format</div><div class="card-si">ස්වයංක්‍රීය හැඩතල ගැන්වීම — ලේඛනය ස්වයංක්‍රීයව හැඩ ගස්වයි</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">K</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">🎨</div><div class="card-body"><div class="card-cmd">Copy Format</div><div class="card-si">ආකෘති පිටපත් කිරීම — හැඩතල ගැන්වීම පිටපත් කරයි</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">C</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">📊</div><div class="card-body"><div class="card-cmd">Spike</div><div class="card-si">ස්පයික් — බහු අන්තර්ගත කැබලි එකතු කර ඇලවීම</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">F3</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">📊</div><div class="card-body"><div class="card-cmd">Insert Spike</div><div class="card-si">ස්පයික් ඇතුළත් කිරීම</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">F3</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">📝</div><div class="card-body"><div class="card-cmd">Create Auto Text</div><div class="card-si">ස්වයං පාඨ නිර්මාණය — නැවත භාවිත කළ හැකි පාඨ කොටසක් සාදයි</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">F3</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">🧱</div><div class="card-body"><div class="card-cmd">Insert Building Block</div><div class="card-si">ගොඩනැගිලි කොටස ඇතුළත් කිරීම</div></div><div class="card-keys"><span class="key">F3</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">🧱</div><div class="card-body"><div class="card-cmd">Insert Building Block</div><div class="card-si">ගොඩනැගිලි කොටස ඇතුළත් කිරීම — විකල්ප</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">V</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">⌨️</div><div class="card-body"><div class="card-cmd">Customize Keyboard Shortcut</div><div class="card-si">යතුරුපුවරු කෙටිමං අභිරුචිකරණය — කෙටිමං වෙනස් කිරීම</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Num+</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">🤖</div><div class="card-body"><div class="card-cmd">Invoke Copilot for selection</div><div class="card-si">තේරීම සඳහා Copilot ක්‍රියාත්මක කිරීම</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">I</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">🤖</div><div class="card-body"><div class="card-cmd">Set Focus to Copilot</div><div class="card-si">Copilot වෙත අවධානය යොමු කිරීම</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">C</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">🔲</div><div class="card-body"><div class="card-cmd">App Restore</div><div class="card-si">යෙදුම ප්‍රතිසාධනය — කවුළුව පෙර ප්‍රමාණයට ගෙනයන්න</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">F5</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">🎙️</div><div class="card-body"><div class="card-cmd">Start Office Dictation</div><div class="card-si">Office ශ්‍රව්‍ය ලේඛනය ආරම්භය — හඬින් ටයිප් කිරීම</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">`</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">🔊</div><div class="card-body"><div class="card-cmd">Read Aloud</div><div class="card-si">ශබ්ද නගා කියවීම — ලේඛනය ශබ්දයෙන් කියවයි</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Space</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">ℹ️</div><div class="card-body"><div class="card-cmd">Microsoft System Info</div><div class="card-si">මයික්‍රොසොෆ්ට් පද්ධති තොරතුරු</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">F1</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">🔢</div><div class="card-body"><div class="card-cmd">Word Count List</div><div class="card-si">වචන ගණන් ලැයිස්තුව — ලේඛනයේ වචන සංඛ්‍යාව පෙන්වයි</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">G</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">🔢</div><div class="card-body"><div class="card-cmd">Word Count Recount</div><div class="card-si">වචන නැවත ගණනය</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">R</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">📏</div><div class="card-body"><div class="card-cmd">Macro</div><div class="card-si">මැක්‍රෝ — මැක්‍රෝ සංවාදය විවෘත කරයි</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">F8</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">💻</div><div class="card-body"><div class="card-cmd">VBCode</div><div class="card-si">VB කේත සංස්කාරකය — Visual Basic සංස්කාරකය විවෘත කරයි</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">F11</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">🔗</div><div class="card-body"><div class="card-cmd">Hyperlink</div><div class="card-si">අධි සබැඳිය — සබැඳියක් ඇතුළත් කිරීම හෝ සංස්කරණය</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">K</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">🔖</div><div class="card-body"><div class="card-cmd">Bookmark</div><div class="card-si">පොත් සලකුණ — ස්ථානයක් සලකුණු කිරීම</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">F5</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">💬</div><div class="card-body"><div class="card-cmd">Insert Comment</div><div class="card-si">අදහසක් ඇතුළත් කිරීම — ප්‍රතිචාරයක් එක් කරයි</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">M</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">✅</div><div class="card-body"><div class="card-cmd">Proofing</div><div class="card-si">සෝදුපත් කිරීම — අක්ෂර වින්‍යාසය සහ ව්‍යාකරණ පරීක්ෂාව</div></div><div class="card-keys"><span class="key">F7</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">📖</div><div class="card-body"><div class="card-cmd">Thesaurus RR</div><div class="card-si">සමාන පද ශබ්ද කෝෂය — වෙනත් වචන යෝජනා කරයි</div></div><div class="card-keys"><span class="key">Shift</span><span class="key-plus">+</span><span class="key">F7</span></div></div>
+
+    <div class="card" data-cat="general"><div class="card-icon ic-blue">🌐</div><div class="card-body"><div class="card-cmd">HHC</div><div class="card-si">හන්ජා පරිවර්තනය</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">F7</span></div></div>
+
+  </div>
+
+  <!-- ==================== TEXT FORMATTING ==================== -->
+  <div class="section-title" data-section="format">
+    <span class="section-dot" style="background:var(--purple)"></span>
+    <h2>පාඨ හැඩතල ගැන්වීම</h2><span class="count">Text Formatting</span>
+  </div>
+  <div class="card-grid">
+
+    <div class="card" data-cat="format"><div class="card-icon ic-purple">B</div><div class="card-body"><div class="card-cmd">Bold</div><div class="card-si">තද අකුරු — තෝරාගත් පාඨය තදින් පෙන්වයි</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">B</span></div></div>
+
+    <div class="card" data-cat="format"><div class="card-icon ic-purple">B</div><div class="card-body"><div class="card-cmd">Bold (Alt)</div><div class="card-si">තද අකුරු — විකල්ප ක්‍රමය</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">B</span></div></div>
+
+    <div class="card" data-cat="format"><div class="card-icon ic-purple"><i>I</i></div><div class="card-body"><div class="card-cmd">Italic</div><div class="card-si">ඇල අකුරු — තෝරාගත් පාඨය ඇලට පෙන්වයි</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">I</span></div></div>
+
+    <div class="card" data-cat="format"><div class="card-icon ic-purple"><i>I</i></div><div class="card-body"><div class="card-cmd">Italic (Alt)</div><div class="card-si">ඇල අකුරු — විකල්ප</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">I</span></div></div>
+
+    <div class="card" data-cat="format"><div class="card-icon ic-purple"><u>U</u></div><div class="card-body"><div class="card-cmd">Underline</div><div class="card-si">යටි ඉරි — තෝරාගත් පාඨයට යටි ඉරි ගසයි</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">U</span></div></div>
+
+    <div class="card" data-cat="format"><div class="card-icon ic-purple"><u>U</u></div><div class="card-body"><div class="card-cmd">Underline (Alt)</div><div class="card-si">යටි ඉරි</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">U</span></div></div>
+
+    <div class="card" data-cat="format"><div class="card-icon ic-purple">W̲</div><div class="card-body"><div class="card-cmd">Word Underline</div><div class="card-si">වචන යටි ඉරි — වචන පමණක් යටි ඉරි ගසයි (හිස්තැන් නොව)</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">W</span></div></div>
+
+    <div class="card" data-cat="format"><div class="card-icon ic-purple">D̲</div><div class="card-body"><div class="card-cmd">Double Underline</div><div class="card-si">ද්විත්ව යටි ඉරි — ද්විත්ව යටි ඉරි ගසයි</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">D</span></div></div>
+
+    <div class="card" data-cat="format"><div class="card-icon ic-purple">A</div><div class="card-body"><div class="card-cmd">All Caps</div><div class="card-si">සියලු විශාල අකුරු — පාඨය සම්පූර්ණයෙන්ම විශාල අකුරින් පෙන්වයි</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">A</span></div></div>
+
+    <div class="card" data-cat="format"><div class="card-icon ic-purple">ᴀ</div><div class="card-body"><div class="card-cmd">Small Caps</div><div class="card-si">කුඩා විශාල අකුරු — කුඩා ප්‍රමාණයේ විශාල අකුරු</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">K</span></div></div>
+
+    <div class="card" data-cat="format"><div class="card-icon ic-purple">Aa</div><div class="card-body"><div class="card-cmd">Change Case</div><div class="card-si">අකුරු ප්‍රමාණය වෙනස් කිරීම — විශාල/කුඩා අකුරු මාරු කරයි</div></div><div class="card-keys"><span class="key">Shift</span><span class="key-plus">+</span><span class="key">F3</span></div></div>
+
+    <div class="card" data-cat="format"><div class="card-icon ic-purple">X₂</div><div class="card-body"><div class="card-cmd">Subscript</div><div class="card-si">යට ලිපිය — අකුරු පහළට ලියයි (H₂O වැනි)</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">-</span></div></div>
+
+    <div class="card" data-cat="format"><div class="card-icon ic-purple">X²</div><div class="card-body"><div class="card-cmd">Superscript</div><div class="card-si">උඩු ලිපිය — අකුරු ඉහළට ලියයි (X² වැනි)</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">=</span></div></div>
+
+    <div class="card" data-cat="format"><div class="card-icon ic-purple">👁‍🗨</div><div class="card-body"><div class="card-cmd">Hidden</div><div class="card-si">සැඟවුණු පාඨය — පාඨය සඟවයි/පෙන්වයි</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">H</span></div></div>
+
+    <div class="card" data-cat="format"><div class="card-icon ic-purple">🖍️</div><div class="card-body"><div class="card-cmd">Highlight</div><div class="card-si">ඉස්මතු කිරීම — පාඨය ඉස්මතු වර්ණයෙන් සලකුණු කරයි</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">H</span></div></div>
+
+    <div class="card" data-cat="format"><div class="card-icon ic-purple">A+</div><div class="card-body"><div class="card-cmd">Grow Font</div><div class="card-si">අකුරු විශාල කිරීම — අකුරු ප්‍රමාණය වැඩි කරයි</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">.</span></div></div>
+
+    <div class="card" data-cat="format"><div class="card-icon ic-purple">A+</div><div class="card-body"><div class="card-cmd">Grow Font One Point</div><div class="card-si">අකුරු එක ලක්ෂ්‍යයකින් විශාල කිරීම</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">]</span></div></div>
+
+    <div class="card" data-cat="format"><div class="card-icon ic-purple">A-</div><div class="card-body"><div class="card-cmd">Shrink Font</div><div class="card-si">අකුරු කුඩා කිරීම — අකුරු ප්‍රමාණය අඩු කරයි</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">,</span></div></div>
+
+    <div class="card" data-cat="format"><div class="card-icon ic-purple">A-</div><div class="card-body"><div class="card-cmd">Shrink Font One Point</div><div class="card-si">අකුරු එක ලක්ෂ්‍යයකින් කුඩා කිරීම</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">[</span></div></div>
+
+    <div class="card" data-cat="format"><div class="card-icon ic-purple">🔤</div><div class="card-body"><div class="card-cmd">Font</div><div class="card-si">අකුරු මුහුණත — අකුරු මුහුණත තේරීමේ කොටුව සක්‍රිය කරයි</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">F</span></div></div>
+
+    <div class="card" data-cat="format"><div class="card-icon ic-purple">🔢</div><div class="card-body"><div class="card-cmd">Font Size Select</div><div class="card-si">අකුරු ප්‍රමාණය තේරීම — අකුරු ප්‍රමාණ කොටුව සක්‍රිය කරයි</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">P</span></div></div>
+
+    <div class="card" data-cat="format"><div class="card-icon ic-purple">🅰️</div><div class="card-body"><div class="card-cmd">Font Formatting</div><div class="card-si">අකුරු හැඩතල ගැන්වීම — අකුරු සංවාද කොටුව විවෘත කරයි</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">D</span></div></div>
+
+    <div class="card" data-cat="format"><div class="card-icon ic-purple">Ω</div><div class="card-body"><div class="card-cmd">Symbol Font</div><div class="card-si">සංකේත අකුරු — සංකේත අකුරු මුහුණතට මාරු කරයි</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">Q</span></div></div>
+
+    <div class="card" data-cat="format"><div class="card-icon ic-purple">🔄</div><div class="card-body"><div class="card-cmd">Reset Char</div><div class="card-si">අක්ෂර ආකෘතිය යළි පිහිටුවීම — පෙරනිමි ආකෘතියට ආපසු</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Space</span></div></div>
+
+    <div class="card" data-cat="format"><div class="card-icon ic-purple">🔄</div><div class="card-body"><div class="card-cmd">Reset Char (Alt)</div><div class="card-si">අක්ෂර ආකෘතිය යළි පිහිටුවීම</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">Z</span></div></div>
+
+  </div>
+
+  <!-- ==================== NAVIGATION ==================== -->
+  <div class="section-title" data-section="nav">
+    <span class="section-dot" style="background:var(--green)"></span>
+    <h2>සංචාලනය</h2><span class="count">Navigation</span>
+  </div>
+  <div class="card-grid">
+
+    <div class="card" data-cat="nav"><div class="card-icon ic-green">←</div><div class="card-body"><div class="card-cmd">Char Left</div><div class="card-si">වම් අක්ෂරය — කර්සරය එක අක්ෂරයක් වමට ගෙනයයි</div></div><div class="card-keys"><span class="key">←</span></div></div>
+
+    <div class="card" data-cat="nav"><div class="card-icon ic-green">→</div><div class="card-body"><div class="card-cmd">Char Right</div><div class="card-si">දකුණු අක්ෂරය — කර්සරය එක අක්ෂරයක් දකුණට ගෙනයයි</div></div><div class="card-keys"><span class="key">→</span></div></div>
+
+    <div class="card" data-cat="nav"><div class="card-icon ic-green">⇐</div><div class="card-body"><div class="card-cmd">Word Left</div><div class="card-si">වම් වචනය — කර්සරය එක වචනයක් වමට ගෙනයයි</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">←</span></div></div>
+
+    <div class="card" data-cat="nav"><div class="card-icon ic-green">⇒</div><div class="card-body"><div class="card-cmd">Word Right</div><div class="card-si">දකුණු වචනය — කර්සරය එක වචනයක් දකුණට ගෙනයයි</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">→</span></div></div>
+
+    <div class="card" data-cat="nav"><div class="card-icon ic-green">↓</div><div class="card-body"><div class="card-cmd">Line Down</div><div class="card-si">පේළිය පහළට — කර්සරය එක පේළියක් පහළට ගෙනයයි</div></div><div class="card-keys"><span class="key">↓</span></div></div>
+
+    <div class="card" data-cat="nav"><div class="card-icon ic-green">↑</div><div class="card-body"><div class="card-cmd">Line Up</div><div class="card-si">පේළිය ඉහළට — කර්සරය එක පේළියක් ඉහළට ගෙනයයි</div></div><div class="card-keys"><span class="key">↑</span></div></div>
+
+    <div class="card" data-cat="nav"><div class="card-icon ic-green">⤓</div><div class="card-body"><div class="card-cmd">Para Down</div><div class="card-si">ඡේදය පහළට — ඊළඟ ඡේදයේ ආරම්භයට</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">↓</span></div></div>
+
+    <div class="card" data-cat="nav"><div class="card-icon ic-green">⤒</div><div class="card-body"><div class="card-cmd">Para Up</div><div class="card-si">ඡේදය ඉහළට — පෙර ඡේදයේ ආරම්භයට</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">↑</span></div></div>
+
+    <div class="card" data-cat="nav"><div class="card-icon ic-green">⇤</div><div class="card-body"><div class="card-cmd">Start of Line</div><div class="card-si">පේළියේ ආරම්භය — කර්සරය පේළිය මුලට ගෙනයයි</div></div><div class="card-keys"><span class="key">Home</span></div></div>
+
+    <div class="card" data-cat="nav"><div class="card-icon ic-green">⇥</div><div class="card-body"><div class="card-cmd">End of Line</div><div class="card-si">පේළියේ අවසානය — කර්සරය පේළිය අගට ගෙනයයි</div></div><div class="card-keys"><span class="key">End</span></div></div>
+
+    <div class="card" data-cat="nav"><div class="card-icon ic-green">⏫</div><div class="card-body"><div class="card-cmd">Start of Document</div><div class="card-si">ලේඛනයේ ආරම්භය — ලේඛනයේ මුල් පිටුවට</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Home</span></div></div>
+
+    <div class="card" data-cat="nav"><div class="card-icon ic-green">⏬</div><div class="card-body"><div class="card-cmd">End of Document</div><div class="card-si">ලේඛනයේ අවසානය — ලේඛනයේ අවසාන පිටුවට</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">End</span></div></div>
+
+    <div class="card" data-cat="nav"><div class="card-icon ic-green">📄</div><div class="card-body"><div class="card-cmd">Page Down</div><div class="card-si">පිටුව පහළට — එක් තිරයක් පහළට ගෙනයයි</div></div><div class="card-keys"><span class="key">Page Down</span></div></div>
+
+    <div class="card" data-cat="nav"><div class="card-icon ic-green">📄</div><div class="card-body"><div class="card-cmd">Page Up</div><div class="card-si">පිටුව ඉහළට — එක් තිරයක් ඉහළට ගෙනයයි</div></div><div class="card-keys"><span class="key">Page Up</span></div></div>
+
+    <div class="card" data-cat="nav"><div class="card-icon ic-green">⬇️</div><div class="card-body"><div class="card-cmd">Browse Next</div><div class="card-si">ඊළඟට පිරික්සීම</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Page Down</span></div></div>
+
+    <div class="card" data-cat="nav"><div class="card-icon ic-green">⬆️</div><div class="card-body"><div class="card-cmd">Browse Prev</div><div class="card-si">පෙර පිරික්සීම</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Page Up</span></div></div>
+
+    <div class="card" data-cat="nav"><div class="card-icon ic-green">🏠</div><div class="card-body"><div class="card-cmd">Browse Sel</div><div class="card-si">පිරික්සුම් තේරීම</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Home</span></div></div>
+
+    <div class="card" data-cat="nav"><div class="card-icon ic-green">🔙</div><div class="card-body"><div class="card-cmd">Go Back</div><div class="card-si">ආපසු යාම — පෙර සංස්කරණ ස්ථානයට ආපසු</div></div><div class="card-keys"><span class="key">Shift</span><span class="key-plus">+</span><span class="key">F5</span></div></div>
+
+    <div class="card" data-cat="nav"><div class="card-icon ic-green">🔙</div><div class="card-body"><div class="card-cmd">Go Back</div><div class="card-si">ආපසු යාම</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Z</span></div></div>
+
+    <div class="card" data-cat="nav"><div class="card-icon ic-green">🔢</div><div class="card-body"><div class="card-cmd">Go To</div><div class="card-si">යාම — නිශ්චිත පිටුවකට, පේළියකට, පොත් සලකුණකට යාම</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">G</span></div></div>
+
+    <div class="card" data-cat="nav"><div class="card-icon ic-green">🔢</div><div class="card-body"><div class="card-cmd">Go To</div><div class="card-si">යාම</div></div><div class="card-keys"><span class="key">F5</span></div></div>
+
+    <div class="card" data-cat="nav"><div class="card-icon ic-green">🖼️</div><div class="card-body"><div class="card-cmd">Next Object</div><div class="card-si">ඊළඟ වස්තුව — ඊළඟ සංස්කරණ වස්තුවට</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">↓</span></div></div>
+
+    <div class="card" data-cat="nav"><div class="card-icon ic-green">🖼️</div><div class="card-body"><div class="card-cmd">Prev Object</div><div class="card-si">පෙර වස්තුව</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">↑</span></div></div>
+
+    <div class="card" data-cat="nav"><div class="card-icon ic-green">🔲</div><div class="card-body"><div class="card-cmd">Goto Object Layer</div><div class="card-si">වස්තු ස්ථරයට යාම</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">5</span></div></div>
+
+    <div class="card" data-cat="nav"><div class="card-icon ic-green">🌐</div><div class="card-body"><div class="card-cmd">Web Go Back</div><div class="card-si">වෙබ් ආපසු — පෙර ස්ථානයට</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">←</span></div></div>
+
+    <div class="card" data-cat="nav"><div class="card-icon ic-green">🌐</div><div class="card-body"><div class="card-cmd">Web Go Forward</div><div class="card-si">වෙබ් ඉදිරියට — ඊළඟ ස්ථානයට</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">→</span></div></div>
+
+    <div class="card" data-cat="nav"><div class="card-icon ic-green">🔲</div><div class="card-body"><div class="card-cmd">Start of Window</div><div class="card-si">කවුළුවේ ආරම්භය</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Page Up</span></div></div>
+
+    <div class="card" data-cat="nav"><div class="card-icon ic-green">🔲</div><div class="card-body"><div class="card-cmd">End of Window</div><div class="card-si">කවුළුවේ අවසානය</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Page Down</span></div></div>
+
+    <div class="card" data-cat="nav"><div class="card-icon ic-green">📊</div><div class="card-body"><div class="card-cmd">Start of Row</div><div class="card-si">පේළියේ ආරම්භය (වගුවේ)</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Home</span></div></div>
+
+    <div class="card" data-cat="nav"><div class="card-icon ic-green">📊</div><div class="card-body"><div class="card-cmd">End of Row</div><div class="card-si">පේළියේ අවසානය (වගුවේ)</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">End</span></div></div>
+
+    <div class="card" data-cat="nav"><div class="card-icon ic-green">📊</div><div class="card-body"><div class="card-cmd">Start of Column</div><div class="card-si">තීරුවේ ආරම්භය</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Page Up</span></div></div>
+
+    <div class="card" data-cat="nav"><div class="card-icon ic-green">📊</div><div class="card-body"><div class="card-cmd">End of Column</div><div class="card-si">තීරුවේ අවසානය</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Page Down</span></div></div>
+
+    <div class="card" data-cat="nav"><div class="card-icon ic-green">🔡</div><div class="card-body"><div class="card-cmd">Delete Back Word</div><div class="card-si">පෙර වචනය මකන්න</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Backspace</span></div></div>
+
+    <div class="card" data-cat="nav"><div class="card-icon ic-green">🔡</div><div class="card-body"><div class="card-cmd">Delete Word</div><div class="card-si">වචනය මකන්න — ඉදිරි වචනය මකයි</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Del</span></div></div>
+
+    <div class="card" data-cat="nav"><div class="card-icon ic-green">📄</div><div class="card-body"><div class="card-cmd">Page Break</div><div class="card-si">පිටු බිඳීම — නව පිටුවකට බිඳීමක් ඇතුළත් කරයි</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Return</span></div></div>
+
+    <div class="card" data-cat="nav"><div class="card-icon ic-green">📊</div><div class="card-body"><div class="card-cmd">Column Break</div><div class="card-si">තීරු බිඳීම — නව තීරුවකට බිඳීමක්</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">Return</span></div></div>
+
+    <div class="card" data-cat="nav"><div class="card-icon ic-green">🔲</div><div class="card-body"><div class="card-cmd">Next Pane</div><div class="card-si">ඊළඟ කවුළුව</div></div><div class="card-keys"><span class="key">F6</span></div></div>
+
+    <div class="card" data-cat="nav"><div class="card-icon ic-green">🔲</div><div class="card-body"><div class="card-cmd">Prev Pane</div><div class="card-si">පෙර කවුළුව</div></div><div class="card-keys"><span class="key">Shift</span><span class="key-plus">+</span><span class="key">F6</span></div></div>
+
+    <div class="card" data-cat="nav"><div class="card-icon ic-green">🪟</div><div class="card-body"><div class="card-cmd">Next Window</div><div class="card-si">ඊළඟ කවුළුව</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">F6</span></div></div>
+
+    <div class="card" data-cat="nav"><div class="card-icon ic-green">🪟</div><div class="card-body"><div class="card-cmd">Prev Window</div><div class="card-si">පෙර කවුළුව</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">F6</span></div></div>
+
+    <div class="card" data-cat="nav"><div class="card-icon ic-green">🔤</div><div class="card-body"><div class="card-cmd">Next Misspelling</div><div class="card-si">ඊළඟ වැරදි අක්ෂර වින්‍යාසය</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">F7</span></div></div>
+
+  </div>
+
+  <!-- ==================== SELECTION ==================== -->
+  <div class="section-title" data-section="select">
+    <span class="section-dot" style="background:var(--teal)"></span>
+    <h2>තේරීම</h2><span class="count">Selection</span>
+  </div>
+  <div class="card-grid">
+
+    <div class="card" data-cat="select"><div class="card-icon ic-teal">✓</div><div class="card-body"><div class="card-cmd">Select All</div><div class="card-si">සියල්ල තේරීම — ලේඛනයේ සියලු අන්තර්ගතය තෝරයි</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">A</span></div></div>
+
+    <div class="card" data-cat="select"><div class="card-icon ic-teal">⇧←</div><div class="card-body"><div class="card-cmd">Char Left Extend</div><div class="card-si">වම් අක්ෂර තේරීම දිගු කිරීම</div></div><div class="card-keys"><span class="key">Shift</span><span class="key-plus">+</span><span class="key">←</span></div></div>
+
+    <div class="card" data-cat="select"><div class="card-icon ic-teal">⇧→</div><div class="card-body"><div class="card-cmd">Char Right Extend</div><div class="card-si">දකුණු අක්ෂර තේරීම දිගු කිරීම</div></div><div class="card-keys"><span class="key">Shift</span><span class="key-plus">+</span><span class="key">→</span></div></div>
+
+    <div class="card" data-cat="select"><div class="card-icon ic-teal">⇧↓</div><div class="card-body"><div class="card-cmd">Line Down Extend</div><div class="card-si">පේළිය පහළට තේරීම දිගු කිරීම</div></div><div class="card-keys"><span class="key">Shift</span><span class="key-plus">+</span><span class="key">↓</span></div></div>
+
+    <div class="card" data-cat="select"><div class="card-icon ic-teal">⇧↑</div><div class="card-body"><div class="card-cmd">Line Up Extend</div><div class="card-si">පේළිය ඉහළට තේරීම දිගු කිරීම</div></div><div class="card-keys"><span class="key">Shift</span><span class="key-plus">+</span><span class="key">↑</span></div></div>
+
+    <div class="card" data-cat="select"><div class="card-icon ic-teal">⇐</div><div class="card-body"><div class="card-cmd">Word Left Extend</div><div class="card-si">වම් වචනය තේරීම දිගු කිරීම</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">←</span></div></div>
+
+    <div class="card" data-cat="select"><div class="card-icon ic-teal">⇒</div><div class="card-body"><div class="card-cmd">Word Right Extend</div><div class="card-si">දකුණු වචනය තේරීම දිගු කිරීම</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">→</span></div></div>
+
+    <div class="card" data-cat="select"><div class="card-icon ic-teal">⤓</div><div class="card-body"><div class="card-cmd">Para Down Extend</div><div class="card-si">ඡේදය පහළට තේරීම දිගු කිරීම</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">↓</span></div></div>
+
+    <div class="card" data-cat="select"><div class="card-icon ic-teal">⤒</div><div class="card-body"><div class="card-cmd">Para Up Extend</div><div class="card-si">ඡේදය ඉහළට තේරීම දිගු කිරීම</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">↑</span></div></div>
+
+    <div class="card" data-cat="select"><div class="card-icon ic-teal">⇤</div><div class="card-body"><div class="card-cmd">Start of Line Extend</div><div class="card-si">පේළි ආරම්භය දක්වා තේරීම</div></div><div class="card-keys"><span class="key">Shift</span><span class="key-plus">+</span><span class="key">Home</span></div></div>
+
+    <div class="card" data-cat="select"><div class="card-icon ic-teal">⇥</div><div class="card-body"><div class="card-cmd">End of Line Extend</div><div class="card-si">පේළි අවසානය දක්වා තේරීම</div></div><div class="card-keys"><span class="key">Shift</span><span class="key-plus">+</span><span class="key">End</span></div></div>
+
+    <div class="card" data-cat="select"><div class="card-icon ic-teal">⏫</div><div class="card-body"><div class="card-cmd">Start of Doc Extend</div><div class="card-si">ලේඛන ආරම්භය දක්වා තේරීම</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">Home</span></div></div>
+
+    <div class="card" data-cat="select"><div class="card-icon ic-teal">⏬</div><div class="card-body"><div class="card-cmd">End of Doc Extend</div><div class="card-si">ලේඛන අවසානය දක්වා තේරීම</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">End</span></div></div>
+
+    <div class="card" data-cat="select"><div class="card-icon ic-teal">📃</div><div class="card-body"><div class="card-cmd">Page Down Extend</div><div class="card-si">පිටුව පහළට තේරීම දිගු කිරීම</div></div><div class="card-keys"><span class="key">Shift</span><span class="key-plus">+</span><span class="key">Page Down</span></div></div>
+
+    <div class="card" data-cat="select"><div class="card-icon ic-teal">📃</div><div class="card-body"><div class="card-cmd">Page Up Extend</div><div class="card-si">පිටුව ඉහළට තේරීම දිගු කිරීම</div></div><div class="card-keys"><span class="key">Shift</span><span class="key-plus">+</span><span class="key">Page Up</span></div></div>
+
+    <div class="card" data-cat="select"><div class="card-icon ic-teal">🔲</div><div class="card-body"><div class="card-cmd">Start of Window Extend</div><div class="card-si">කවුළු ආරම්භය දක්වා තේරීම</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">PgUp</span></div></div>
+
+    <div class="card" data-cat="select"><div class="card-icon ic-teal">🔲</div><div class="card-body"><div class="card-cmd">End of Window Extend</div><div class="card-si">කවුළු අවසානය දක්වා තේරීම</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">PgDn</span></div></div>
+
+    <div class="card" data-cat="select"><div class="card-icon ic-teal">⊞</div><div class="card-body"><div class="card-cmd">Extend Selection</div><div class="card-si">තේරීම දිගු කිරීම — තේරීම් මාදිලිය සක්‍රිය කරයි</div></div><div class="card-keys"><span class="key">F8</span></div></div>
+
+    <div class="card" data-cat="select"><div class="card-icon ic-teal">⊟</div><div class="card-body"><div class="card-cmd">Shrink Selection</div><div class="card-si">තේරීම හකුළීම</div></div><div class="card-keys"><span class="key">Shift</span><span class="key-plus">+</span><span class="key">F8</span></div></div>
+
+    <div class="card" data-cat="select"><div class="card-icon ic-teal">▦</div><div class="card-body"><div class="card-cmd">Column Select</div><div class="card-si">තීරු තේරීම — තීරු ආකාරයෙන් තේරීම</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">F8</span></div></div>
+
+    <div class="card" data-cat="select"><div class="card-icon ic-teal">📊</div><div class="card-body"><div class="card-cmd">Select Table</div><div class="card-si">වගුව තේරීම — සම්පූර්ණ වගුව තෝරයි</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Num 5</span></div></div>
+
+  </div>
+
+  <!-- ==================== PARAGRAPH ==================== -->
+  <div class="section-title" data-section="para">
+    <span class="section-dot" style="background:var(--orange)"></span>
+    <h2>ඡේද හැඩතල ගැන්වීම</h2><span class="count">Paragraph</span>
+  </div>
+  <div class="card-grid">
+
+    <div class="card" data-cat="para"><div class="card-icon ic-orange">≡</div><div class="card-body"><div class="card-cmd">Paragraph Alignment (Center)</div><div class="card-si">ඡේද පෙළගැස්ම — මැද පෙළගැස්ම</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">E</span></div></div>
+
+    <div class="card" data-cat="para"><div class="card-icon ic-orange">≡</div><div class="card-body"><div class="card-cmd">Paragraph Alignment (Right)</div><div class="card-si">ඡේද පෙළගැස්ම — දකුණු පෙළගැස්ම</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">R</span></div></div>
+
+    <div class="card" data-cat="para"><div class="card-icon ic-orange">≡</div><div class="card-body"><div class="card-cmd">Paragraph Alignment (Justify)</div><div class="card-si">ඡේද පෙළගැස්ම — සම්පූර්ණ පෙළගැස්ම</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">J</span></div></div>
+
+    <div class="card" data-cat="para"><div class="card-icon ic-orange">≡</div><div class="card-body"><div class="card-cmd">Paragraph Alignment (Left)</div><div class="card-si">ඡේද පෙළගැස්ම — වම් පෙළගැස්ම</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">L</span></div></div>
+
+    <div class="card" data-cat="para"><div class="card-icon ic-orange">↹</div><div class="card-body"><div class="card-cmd">Distribute Para</div><div class="card-si">ඡේදය බෙදා හැරීම — පාඨය සමානව බෙදා හරියි</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">J</span></div></div>
+
+    <div class="card" data-cat="para"><div class="card-icon ic-orange">1️⃣</div><div class="card-body"><div class="card-cmd">Paragraph Spacing (Single)</div><div class="card-si">ඡේද පරතරය — තනි පේළි පරතරය</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">1</span></div></div>
+
+    <div class="card" data-cat="para"><div class="card-icon ic-orange">2️⃣</div><div class="card-body"><div class="card-cmd">Paragraph Spacing (Double)</div><div class="card-si">ඡේද පරතරය — ද්විත්ව පේළි පරතරය</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">2</span></div></div>
+
+    <div class="card" data-cat="para"><div class="card-icon ic-orange">1.5</div><div class="card-body"><div class="card-cmd">Paragraph Spacing (1.5)</div><div class="card-si">ඡේද පරතරය — 1.5 පේළි පරතරය</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">5</span></div></div>
+
+    <div class="card" data-cat="para"><div class="card-icon ic-orange">⇥</div><div class="card-body"><div class="card-cmd">Indent</div><div class="card-si">ඉන්ඩෙන්ට් — ඡේදය ඉන්ඩෙන්ට් කරයි</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">M</span></div></div>
+
+    <div class="card" data-cat="para"><div class="card-icon ic-orange">⇤</div><div class="card-body"><div class="card-cmd">Un Indent</div><div class="card-si">ඉන්ඩෙන්ට් ඉවත් කිරීම</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">M</span></div></div>
+
+    <div class="card" data-cat="para"><div class="card-icon ic-orange">⤸</div><div class="card-body"><div class="card-cmd">Hanging Indent</div><div class="card-si">එල්ලෙන ඉන්ඩෙන්ට් — පළමු පේළිය හැරුණු විට ඉන්ඩෙන්ට්</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">T</span></div></div>
+
+    <div class="card" data-cat="para"><div class="card-icon ic-orange">⤹</div><div class="card-body"><div class="card-cmd">Un Hang</div><div class="card-si">එල්ලෙන ඉන්ඩෙන්ට් ඉවත් කිරීම</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">T</span></div></div>
+
+    <div class="card" data-cat="para"><div class="card-icon ic-orange">⇕</div><div class="card-body"><div class="card-cmd">Open or Close Up Para</div><div class="card-si">ඡේදයට පෙර ඉඩ විවෘත/වසන්න</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">0</span></div></div>
+
+    <div class="card" data-cat="para"><div class="card-icon ic-orange">🔄</div><div class="card-body"><div class="card-cmd">Paragraph Formatting</div><div class="card-si">ඡේද හැඩතල ගැන්වීම යළි පිහිටුවීම</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Q</span></div></div>
+
+  </div>
+
+  <!-- ==================== DOCUMENT ==================== -->
+  <div class="section-title" data-section="doc">
+    <span class="section-dot" style="background:var(--red)"></span>
+    <h2>ලේඛන කළමනාකරණය</h2><span class="count">Document</span>
+  </div>
+  <div class="card-grid">
+
+    <div class="card" data-cat="doc"><div class="card-icon ic-red">✕</div><div class="card-body"><div class="card-cmd">Doc Close</div><div class="card-si">ලේඛනය වසන්න — වත්මන් ලේඛනය වසයි</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">W</span></div></div>
+
+    <div class="card" data-cat="doc"><div class="card-icon ic-red">✕</div><div class="card-body"><div class="card-cmd">Doc Close</div><div class="card-si">ලේඛනය වසන්න</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">F4</span></div></div>
+
+    <div class="card" data-cat="doc"><div class="card-icon ic-red">⊠</div><div class="card-body"><div class="card-cmd">File Close or Exit</div><div class="card-si">ගොනුව වසන්න / පිටවන්න — යෙදුම වසයි</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">F4</span></div></div>
+
+    <div class="card" data-cat="doc"><div class="card-icon ic-red">⛶</div><div class="card-body"><div class="card-cmd">Doc Maximize</div><div class="card-si">ලේඛනය උපරිම කිරීම</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">F10</span></div></div>
+
+    <div class="card" data-cat="doc"><div class="card-icon ic-red">❐</div><div class="card-body"><div class="card-cmd">Doc Restore</div><div class="card-si">ලේඛනය ප්‍රතිසාධනය</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">F5</span></div></div>
+
+    <div class="card" data-cat="doc"><div class="card-icon ic-red">📐</div><div class="card-body"><div class="card-cmd">Doc Size</div><div class="card-si">ලේඛන ප්‍රමාණය වෙනස් කිරීම</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">F8</span></div></div>
+
+    <div class="card" data-cat="doc"><div class="card-icon ic-red">✂️</div><div class="card-body"><div class="card-cmd">Doc Split</div><div class="card-si">ලේඛනය බෙදීම — කවුළුව දෙකට බෙදයි</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">S</span></div></div>
+
+    <div class="card" data-cat="doc"><div class="card-icon ic-red">❌</div><div class="card-body"><div class="card-cmd">Close Pane</div><div class="card-si">කවුළුව වසන්න — බෙදුම් කවුළුව වසයි</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">C</span></div></div>
+
+    <div class="card" data-cat="doc"><div class="card-icon ic-red">📔</div><div class="card-body"><div class="card-cmd">Toggle Master Subdocs</div><div class="card-si">ප්‍රධාන/උප ලේඛන ටොගලය</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">\</span></div></div>
+
+    <div class="card" data-cat="doc"><div class="card-icon ic-red">📝</div><div class="card-body"><div class="card-cmd">Revision Marks Toggle</div><div class="card-si">සංශෝධන සලකුණු ටොගලය — වෙනස්කම් ලුහුබැඳීම</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">E</span></div></div>
+
+    <div class="card" data-cat="doc"><div class="card-icon ic-red">✏️</div><div class="card-body"><div class="card-cmd">Edit</div><div class="card-si">සංස්කරණය — ශීර්ෂක / පාදක සංස්කරණය</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">R</span></div></div>
+
+    <div class="card" data-cat="doc"><div class="card-icon ic-red">📑</div><div class="card-body"><div class="card-cmd">JumpToModernReviewCard</div><div class="card-si">නවීන සමාලෝචන කාඩ්පතට පනින්න</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">F12</span></div></div>
+
+    <div class="card" data-cat="doc"><div class="card-icon ic-red">📊</div><div class="card-body"><div class="card-cmd">Select and scroll to next E2o</div><div class="card-si">ඊළඟ E2o වෙත තේරීම හා අනුචලනය</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">G</span></div></div>
+
+  </div>
+
+  <!-- ==================== FIND & REPLACE ==================== -->
+  <div class="section-title" data-section="find">
+    <span class="section-dot" style="background:var(--indigo)"></span>
+    <h2>සෙවීම සහ ප්‍රතිස්ථාපනය</h2><span class="count">Find & Replace</span>
+  </div>
+  <div class="card-grid">
+
+    <div class="card" data-cat="find"><div class="card-icon ic-indigo">🔍</div><div class="card-body"><div class="card-cmd">Smart Find</div><div class="card-si">බුද්ධිමත් සෙවීම — ලේඛනය තුළ පාඨය සොයයි</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">F</span></div></div>
+
+    <div class="card" data-cat="find"><div class="card-icon ic-indigo">🔄</div><div class="card-body"><div class="card-cmd">Replace</div><div class="card-si">ප්‍රතිස්ථාපනය — පාඨය සොයා ප්‍රතිස්ථාපනය කරයි</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">H</span></div></div>
+
+    <div class="card" data-cat="find"><div class="card-icon ic-indigo">🔁</div><div class="card-body"><div class="card-cmd">Repeat Find</div><div class="card-si">සෙවීම නැවත කිරීම — මීළඟ ගැලපීම සොයයි</div></div><div class="card-keys"><span class="key">Shift</span><span class="key-plus">+</span><span class="key">F4</span></div></div>
+
+    <div class="card" data-cat="find"><div class="card-icon ic-indigo">🔁</div><div class="card-body"><div class="card-cmd">Repeat Find</div><div class="card-si">සෙවීම නැවත කිරීම</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Y</span></div></div>
+
+    <div class="card" data-cat="find"><div class="card-icon ic-indigo">📚</div><div class="card-body"><div class="card-cmd">Research Lookup</div><div class="card-si">පර්යේෂණ සෙවීම</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">O</span></div></div>
+
+  </div>
+
+  <!-- ==================== VIEW ==================== -->
+  <div class="section-title" data-section="view">
+    <span class="section-dot" style="background:var(--mint)"></span>
+    <h2>දසුන සහ විශාලනය</h2><span class="count">View & Zoom</span>
+  </div>
+  <div class="card-grid">
+
+    <div class="card" data-cat="view"><div class="card-icon ic-mint">📖</div><div class="card-body"><div class="card-cmd">Normal</div><div class="card-si">සාමාන්‍ය දසුන — කෙටුම්පත් දසුන</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">N</span></div></div>
+
+    <div class="card" data-cat="view"><div class="card-icon ic-mint">📄</div><div class="card-body"><div class="card-cmd">Page</div><div class="card-si">පිටු දසුන — මුද්‍රණ පිරිසැලසුම් දසුන</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">P</span></div></div>
+
+    <div class="card" data-cat="view"><div class="card-icon ic-mint">📝</div><div class="card-body"><div class="card-cmd">Outline</div><div class="card-si">සැකිලි දසුන</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">O</span></div></div>
+
+    <div class="card" data-cat="view"><div class="card-icon ic-mint">🔳</div><div class="card-body"><div class="card-cmd">Toggle Ribbon</div><div class="card-si">රිබන් ටොගලය — මෙවලම් තීරුව සැඟවීම/පෙන්වීම</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">F1</span></div></div>
+
+    <div class="card" data-cat="view"><div class="card-icon ic-mint">¶</div><div class="card-body"><div class="card-cmd">Show All</div><div class="card-si">සියල්ල පෙන්වන්න — හැඩතල ගැන්වීම් සලකුණු පෙන්වයි</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">8</span></div></div>
+
+    <div class="card" data-cat="view"><div class="card-icon ic-mint">🔎</div><div class="card-body"><div class="card-cmd">Zoom In</div><div class="card-si">විශාලනය — දසුන ළඟට ගෙනයයි</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">=</span></div></div>
+
+    <div class="card" data-cat="view"><div class="card-icon ic-mint">🔍</div><div class="card-body"><div class="card-cmd">Zoom Out</div><div class="card-si">කුඩා කිරීම — දසුන ඈතට ගෙනයයි</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">-</span></div></div>
+
+    <div class="card" data-cat="view"><div class="card-icon ic-mint">💯</div><div class="card-body"><div class="card-cmd">Zoom 100%</div><div class="card-si">100% විශාලනය — සාමාන්‍ය ප්‍රමාණයට</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">0</span></div></div>
+
+    <div class="card" data-cat="view"><div class="card-icon ic-mint">📋</div><div class="card-body"><div class="card-cmd">Formatting Pane</div><div class="card-si">හැඩතල ගැන්වීම් කවුළුව — ශෛලි කවුළුව විවෘත කරයි</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">S</span></div></div>
+
+    <div class="card" data-cat="view"><div class="card-icon ic-mint">ℹ️</div><div class="card-body"><div class="card-cmd">Formatting Properties</div><div class="card-si">හැඩතල ගුණාංග — හැඩතල ගැන්වීම් තොරතුරු පෙන්වයි</div></div><div class="card-keys"><span class="key">Shift</span><span class="key-plus">+</span><span class="key">F1</span></div></div>
+
+    <div class="card" data-cat="view"><div class="card-icon ic-mint">🏷️</div><div class="card-body"><div class="card-cmd">Toggle XMLTag View</div><div class="card-si">XML ටැග් දසුන ටොගලය</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">X</span></div></div>
+
+  </div>
+
+  <!-- ==================== FIELDS ==================== -->
+  <div class="section-title" data-section="field">
+    <span class="section-dot" style="background:var(--pink)"></span>
+    <h2>ක්ෂේත්‍ර සහ සටහන්</h2><span class="count">Fields & Notes</span>
+  </div>
+  <div class="card-grid">
+
+    <div class="card" data-cat="field"><div class="card-icon ic-pink">📅</div><div class="card-body"><div class="card-cmd">Date Field</div><div class="card-si">දින ක්ෂේත්‍රය — වත්මන් දිනය ඇතුළත් කරයි</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">D</span></div></div>
+
+    <div class="card" data-cat="field"><div class="card-icon ic-pink">🕐</div><div class="card-body"><div class="card-cmd">Time Field</div><div class="card-si">කාල ක්ෂේත්‍රය — වත්මන් වේලාව ඇතුළත් කරයි</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">T</span></div></div>
+
+    <div class="card" data-cat="field"><div class="card-icon ic-pink">📄</div><div class="card-body"><div class="card-cmd">Page Field</div><div class="card-si">පිටු ක්ෂේත්‍රය — පිටු අංකය ඇතුළත් කරයි</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">P</span></div></div>
+
+    <div class="card" data-cat="field"><div class="card-icon ic-pink">🔲</div><div class="card-body"><div class="card-cmd">Insert Field</div><div class="card-si">ක්ෂේත්‍ර ඇතුළත් කිරීම — හිස් ක්ෂේත්‍රයක් ඇතුළත් කරයි</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">F9</span></div></div>
+
+    <div class="card" data-cat="field"><div class="card-icon ic-pink">🔄</div><div class="card-body"><div class="card-cmd">Update Fields</div><div class="card-si">ක්ෂේත්‍ර යාවත්කාලීන කිරීම</div></div><div class="card-keys"><span class="key">F9</span></div></div>
+
+    <div class="card" data-cat="field"><div class="card-icon ic-pink">🔄</div><div class="card-body"><div class="card-cmd">Update Fields</div><div class="card-si">ක්ෂේත්‍ර යාවත්කාලීන කිරීම</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">U</span></div></div>
+
+    <div class="card" data-cat="field"><div class="card-icon ic-pink">▶️</div><div class="card-body"><div class="card-cmd">Next Field</div><div class="card-si">ඊළඟ ක්ෂේත්‍රය</div></div><div class="card-keys"><span class="key">F11</span></div></div>
+
+    <div class="card" data-cat="field"><div class="card-icon ic-pink">◀️</div><div class="card-body"><div class="card-cmd">Prev Field</div><div class="card-si">පෙර ක්ෂේත්‍රය</div></div><div class="card-keys"><span class="key">Shift</span><span class="key-plus">+</span><span class="key">F11</span></div></div>
+
+    <div class="card" data-cat="field"><div class="card-icon ic-pink">👁️</div><div class="card-body"><div class="card-cmd">Field Codes</div><div class="card-si">ක්ෂේත්‍ර කේත — සියලු ක්ෂේත්‍ර කේත පෙන්වයි/සඟවයි</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">F9</span></div></div>
+
+    <div class="card" data-cat="field"><div class="card-icon ic-pink">👁️</div><div class="card-body"><div class="card-cmd">Toggle Field Display</div><div class="card-si">ක්ෂේත්‍ර දර්ශනය ටොගලය — තනි ක්ෂේත්‍ර කේතය පෙන්වයි</div></div><div class="card-keys"><span class="key">Shift</span><span class="key-plus">+</span><span class="key">F9</span></div></div>
+
+    <div class="card" data-cat="field"><div class="card-icon ic-pink">🔒</div><div class="card-body"><div class="card-cmd">Lock Fields</div><div class="card-si">ක්ෂේත්‍ර අගුළු දැමීම — ක්ෂේත්‍ර යාවත්කාලීන වීම වළක්වයි</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">3</span></div></div>
+
+    <div class="card" data-cat="field"><div class="card-icon ic-pink">🔒</div><div class="card-body"><div class="card-cmd">Lock Fields</div><div class="card-si">ක්ෂේත්‍ර අගුළු දැමීම</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">F11</span></div></div>
+
+    <div class="card" data-cat="field"><div class="card-icon ic-pink">🔓</div><div class="card-body"><div class="card-cmd">Unlock Fields</div><div class="card-si">ක්ෂේත්‍ර අගුළු ඇරීම</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">4</span></div></div>
+
+    <div class="card" data-cat="field"><div class="card-icon ic-pink">🔓</div><div class="card-body"><div class="card-cmd">Unlock Fields</div><div class="card-si">ක්ෂේත්‍ර අගුළු ඇරීම</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">F11</span></div></div>
+
+    <div class="card" data-cat="field"><div class="card-icon ic-pink">🔗</div><div class="card-body"><div class="card-cmd">Unlink Fields</div><div class="card-si">ක්ෂේත්‍ර සබැඳි ඉවත් කිරීම — ක්ෂේත්‍රය පාඨයට පරිවර්තනය</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">6</span></div></div>
+
+    <div class="card" data-cat="field"><div class="card-icon ic-pink">🔗</div><div class="card-body"><div class="card-cmd">Unlink Fields</div><div class="card-si">ක්ෂේත්‍ර සබැඳි ඉවත් කිරීම</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">F9</span></div></div>
+
+    <div class="card" data-cat="field"><div class="card-icon ic-pink">🖱️</div><div class="card-body"><div class="card-cmd">Do Field Click</div><div class="card-si">ක්ෂේත්‍ර ක්ලික් කිරීම</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">F9</span></div></div>
+
+    <div class="card" data-cat="field"><div class="card-icon ic-pink">🔤</div><div class="card-body"><div class="card-cmd">Toggle Character Code</div><div class="card-si">අක්ෂර කේත ටොගලය — යුනිකෝඩ් අක්ෂර කේත පරිවර්තනය</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">X</span></div></div>
+
+    <div class="card" data-cat="field"><div class="card-icon ic-pink">📝</div><div class="card-body"><div class="card-cmd">Footnote</div><div class="card-si">පාද සටහන — පිටුවේ පහළ සටහනක් ඇතුළත් කරයි</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">F</span></div></div>
+
+    <div class="card" data-cat="field"><div class="card-icon ic-pink">📝</div><div class="card-body"><div class="card-cmd">Endnote</div><div class="card-si">අවසාන සටහන — ලේඛනයේ අවසානයේ සටහනක්</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">D</span></div></div>
+
+    <div class="card" data-cat="field"><div class="card-icon ic-pink">∑</div><div class="card-body"><div class="card-cmd">Equation Toggle</div><div class="card-si">සමීකරණ ටොගලය — ගණිත සමීකරණ ඇතුළත් කිරීම</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">=</span></div></div>
+
+    <div class="card" data-cat="field"><div class="card-icon ic-pink">#</div><div class="card-body"><div class="card-cmd">List Num Field</div><div class="card-si">ලැයිස්තු අංක ක්ෂේත්‍රය</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">L</span></div></div>
+
+    <div class="card" data-cat="field"><div class="card-icon ic-pink">📤</div><div class="card-body"><div class="card-cmd">Update Source</div><div class="card-si">මූලාශ්‍රය යාවත්කාලීන කිරීම</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">F7</span></div></div>
+
+    <div class="card" data-cat="field"><div class="card-icon ic-pink">🔧</div><div class="card-body"><div class="card-cmd">Update Auto Format</div><div class="card-si">ස්වයංක්‍රීය හැඩතල ගැන්වීම යාවත්කාලීනය</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">U</span></div></div>
+
+  </div>
+
+  <!-- ==================== MAIL MERGE ==================== -->
+  <div class="section-title" data-section="mail">
+    <span class="section-dot" style="background:var(--yellow)"></span>
+    <h2>තැපැල් ඒකාබද්ධය</h2><span class="count">Mail Merge</span>
+  </div>
+  <div class="card-grid">
+
+    <div class="card" data-cat="mail"><div class="card-icon ic-yellow">✉️</div><div class="card-body"><div class="card-cmd">Mail Merge Check</div><div class="card-si">තැපැල් ඒකාබද්ධ පරීක්ෂාව</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">K</span></div></div>
+
+    <div class="card" data-cat="mail"><div class="card-icon ic-yellow">📝</div><div class="card-body"><div class="card-cmd">Mail Merge Edit Data Source</div><div class="card-si">තැපැල් ඒකාබද්ධ දත්ත මූලාශ්‍ර සංස්කරණය</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">E</span></div></div>
+
+    <div class="card" data-cat="mail"><div class="card-icon ic-yellow">📄</div><div class="card-body"><div class="card-cmd">Mail Merge to Doc</div><div class="card-si">ලේඛනයට තැපැල් ඒකාබද්ධය</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">N</span></div></div>
+
+    <div class="card" data-cat="mail"><div class="card-icon ic-yellow">🖨️</div><div class="card-body"><div class="card-cmd">Mail Merge to Printer</div><div class="card-si">මුද්‍රණයට තැපැල් ඒකාබද්ධය</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">M</span></div></div>
+
+    <div class="card" data-cat="mail"><div class="card-icon ic-yellow">🔲</div><div class="card-body"><div class="card-cmd">Merge Field</div><div class="card-si">ඒකාබද්ධ ක්ෂේත්‍රය — තැපැල් ඒකාබද්ධ ක්ෂේත්‍රයක්</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">F</span></div></div>
+
+    <div class="card" data-cat="mail"><div class="card-icon ic-yellow">📎</div><div class="card-body"><div class="card-cmd">Mark Citation</div><div class="card-si">උපුටා දැක්වීම සලකුණු කිරීම</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">I</span></div></div>
+
+    <div class="card" data-cat="mail"><div class="card-icon ic-yellow">📇</div><div class="card-body"><div class="card-cmd">Mark Index Entry</div><div class="card-si">දර්ශක ඇතුළත් කිරීම සලකුණු කිරීම</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">X</span></div></div>
+
+    <div class="card" data-cat="mail"><div class="card-icon ic-yellow">📑</div><div class="card-body"><div class="card-cmd">Mark Table of Contents Entry</div><div class="card-si">අන්තර්ගත වගුව ඇතුළත් කිරීම සලකුණු කිරීම</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">O</span></div></div>
+
+  </div>
+
+  <!-- ==================== OUTLINE ==================== -->
+  <div class="section-title" data-section="outline">
+    <span class="section-dot" style="background:var(--cyan)"></span>
+    <h2>සැකිල්ල සහ ශීර්ෂ</h2><span class="count">Outline & Headings</span>
+  </div>
+  <div class="card-grid">
+
+    <div class="card" data-cat="outline"><div class="card-icon ic-cyan">⬇️</div><div class="card-body"><div class="card-cmd">Outline Demote</div><div class="card-si">සැකිල්ල අවනත කිරීම — මට්ටම පහත හෙළයි</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">→</span></div></div>
+
+    <div class="card" data-cat="outline"><div class="card-icon ic-cyan">⬆️</div><div class="card-body"><div class="card-cmd">Outline Promote</div><div class="card-si">සැකිල්ල ප්‍රවර්ධනය — මට්ටම ඉහළ නංවයි</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">←</span></div></div>
+
+    <div class="card" data-cat="outline"><div class="card-icon ic-cyan">🔽</div><div class="card-body"><div class="card-cmd">Outline Move Down</div><div class="card-si">සැකිල්ලේ පහළට ගෙනයාම</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">↓</span></div></div>
+
+    <div class="card" data-cat="outline"><div class="card-icon ic-cyan">🔼</div><div class="card-body"><div class="card-cmd">Outline Move Up</div><div class="card-si">සැකිල්ලේ ඉහළට ගෙනයාම</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">↑</span></div></div>
+
+    <div class="card" data-cat="outline"><div class="card-icon ic-cyan">📝</div><div class="card-body"><div class="card-cmd">Outline Show First Line</div><div class="card-si">සැකිල්ලේ පළමු පේළිය පෙන්වන්න</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">L</span></div></div>
+
+    <div class="card" data-cat="outline"><div class="card-icon ic-cyan">➖</div><div class="card-body"><div class="card-cmd">Collapse Heading</div><div class="card-si">ශීර්ෂය හකුළීම — ශීර්ෂය යටතේ අන්තර්ගතය සඟවයි</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">Num-</span></div></div>
+
+    <div class="card" data-cat="outline"><div class="card-icon ic-cyan">➕</div><div class="card-body"><div class="card-cmd">Expand Heading</div><div class="card-si">ශීර්ෂය විහිදීම — ශීර්ෂය යටතේ අන්තර්ගතය පෙන්වයි</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">Num+</span></div></div>
+
+    <div class="card" data-cat="outline"><div class="card-icon ic-cyan">🔄</div><div class="card-body"><div class="card-cmd">Toggle Heading</div><div class="card-si">ශීර්ෂ ටොගලය</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">=</span></div></div>
+
+    <div class="card" data-cat="outline"><div class="card-icon ic-cyan">📋</div><div class="card-body"><div class="card-cmd">Show All Headings</div><div class="card-si">සියලු ශීර්ෂ පෙන්වන්න</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">A</span></div></div>
+
+    <div class="card" data-cat="outline"><div class="card-icon ic-cyan">H1</div><div class="card-body"><div class="card-cmd">Show Heading 1</div><div class="card-si">ශීර්ෂය 1 පෙන්වන්න</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">1</span></div></div>
+
+    <div class="card" data-cat="outline"><div class="card-icon ic-cyan">H2</div><div class="card-body"><div class="card-cmd">Show Heading 2</div><div class="card-si">ශීර්ෂය 2 පෙන්වන්න</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">2</span></div></div>
+
+    <div class="card" data-cat="outline"><div class="card-icon ic-cyan">H3</div><div class="card-body"><div class="card-cmd">Show Heading 3</div><div class="card-si">ශීර්ෂය 3 පෙන්වන්න</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">3</span></div></div>
+
+    <div class="card" data-cat="outline"><div class="card-icon ic-cyan">H4</div><div class="card-body"><div class="card-cmd">Show Heading 4-9</div><div class="card-si">ශීර්ෂය 4 සිට 9 දක්වා පෙන්වන්න</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">4-9</span></div></div>
+
+  </div>
+
+  <!-- ==================== STYLES ==================== -->
+  <div class="section-title" data-section="other">
+    <span class="section-dot" style="background:#8e8e93"></span>
+    <h2>ශෛලි සහ වෙනත්</h2><span class="count">Styles & Others</span>
+  </div>
+  <div class="card-grid">
+
+    <div class="card" data-cat="other"><div class="card-icon ic-gray">N</div><div class="card-body"><div class="card-cmd">Normal Style</div><div class="card-si">සාමාන්‍ය ශෛලිය — පෙරනිමි ඡේද ශෛලිය යොදයි</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">N</span></div></div>
+
+    <div class="card" data-cat="other"><div class="card-icon ic-gray">H1</div><div class="card-body"><div class="card-cmd">Style (Heading 1)</div><div class="card-si">ශෛලිය — ශීර්ෂ 1 ශෛලිය යොදයි</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">1</span></div></div>
+
+    <div class="card" data-cat="other"><div class="card-icon ic-gray">H2</div><div class="card-body"><div class="card-cmd">Style (Heading 2)</div><div class="card-si">ශෛලිය — ශීර්ෂ 2 ශෛලිය යොදයි</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">2</span></div></div>
+
+    <div class="card" data-cat="other"><div class="card-icon ic-gray">H3</div><div class="card-body"><div class="card-cmd">Style (Heading 3)</div><div class="card-si">ශෛලිය — ශීර්ෂ 3 ශෛලිය යොදයි</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">3</span></div></div>
+
+    <div class="card" data-cat="other"><div class="card-icon ic-gray">L</div><div class="card-body"><div class="card-cmd">Style (List)</div><div class="card-si">ශෛලිය — ලැයිස්තු ශෛලිය</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">L</span></div></div>
+
+    <div class="card" data-cat="other"><div class="card-icon ic-gray">📋</div><div class="card-body"><div class="card-cmd">Style Apply Pane</div><div class="card-si">ශෛලි යොදන කවුළුව — ශෛලි තේරීමේ කොටුව</div></div><div class="card-keys"><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Shift</span><span class="key-plus">+</span><span class="key">S</span></div></div>
+
+    <div class="card" data-cat="other"><div class="card-icon ic-gray">⎮</div><div class="card-body"><div class="card-cmd">Style Separator</div><div class="card-si">ශෛලි වෙන්කරු — ඡේදයක් තුළ ශෛලි වෙන් කරයි</div></div><div class="card-keys"><span class="key">Alt</span><span class="key-plus">+</span><span class="key">Ctrl</span><span class="key-plus">+</span><span class="key">Return</span></div></div>
+
+  </div>
+
+</div>
+
+<!-- Scroll to top -->
+<button class="scroll-top" id="scrollTop" title="ඉහළට">↑</button>
+
+<!-- Footer -->
+<div class="footer">
+  <p>🇱🇰 MS Word කෙටිමං යතුරු — සිංහල හඳුන්වාදීම</p>
+  <p style="margin-top:4px;">© 2024 — Apple iOS UI Design Inspired</p>
+</div>
+
+<script>
+// Search
+const search=document.getElementById('search');
+const cards=document.querySelectorAll('.card');
+const searchCount=document.getElementById('searchCount');
+const sections=document.querySelectorAll('.section-title');
+
+function updateCount(){
+  const visible=[...cards].filter(c=>!c.classList.contains('hidden')).length;
+  searchCount.textContent=`ප්‍රතිඵල ${visible} / ${cards.length}`;
+}
+
+search.addEventListener('input',()=>{
+  const q=search.value.toLowerCase();
+  cards.forEach(c=>{
+    const text=c.textContent.toLowerCase();
+    c.classList.toggle('hidden',q&&!text.includes(q));
+  });
+  sections.forEach(s=>{
+    const grid=s.nextElementSibling;
+    if(grid){
+      const vis=[...grid.querySelectorAll('.card')].some(c=>!c.classList.contains('hidden'));
+      s.style.display=vis?'':'none';
+      grid.style.display=vis?'':'none';
+    }
+  });
+  updateCount();
+});
+
+// Filter pills
+const pills=document.querySelectorAll('.pill');
+pills.forEach(p=>{
+  p.addEventListener('click',()=>{
+    pills.forEach(x=>x.classList.remove('active'));
+    p.classList.add('active');
+    const cat=p.dataset.cat;
+    cards.forEach(c=>{
+      if(cat==='all') c.classList.remove('hidden');
+      else c.classList.toggle('hidden',c.dataset.cat!==cat);
+    });
+    sections.forEach(s=>{
+      const sec=s.dataset.section;
+      if(cat==='all'){s.style.display='';s.nextElementSibling.style.display='';}
+      else{
+        const show=sec===cat;
+        s.style.display=show?'':'none';
+        if(s.nextElementSibling)s.nextElementSibling.style.display=show?'':'none';
+      }
+    });
+    search.value='';
+    updateCount();
+  });
+});
+
+// Scroll to top
+const scrollBtn=document.getElementById('scrollTop');
+window.addEventListener('scroll',()=>{
+  scrollBtn.classList.toggle('show',window.scrollY>600);
+});
+scrollBtn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+updateCount();
+</script>
+</body>
+</html>
